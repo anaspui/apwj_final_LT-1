@@ -22,6 +22,11 @@ public class StudentRepository {
         Query<Student> userQuery = session.createQuery("from Student", Student.class);
         return userQuery.getResultList();
     }
+
+    public void save(Student student){
+        Session session = sessionFactory.getCurrentSession();
+        session.save(student);
+    }
     public Student get(int id) {
         Session session = sessionFactory.getCurrentSession();
         return session.get(Student.class, id);

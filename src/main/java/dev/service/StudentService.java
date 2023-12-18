@@ -23,6 +23,10 @@ public List<Student> getAllStudents() throws SQLException {
     public Student getOne(int id) throws SQLException{
         return studentRepository.get(id);
     }
+
+    public void add(Student student) throws SQLException {
+        studentRepository.save(student);
+    }
     public void edit(Student student) throws SQLException{
          studentRepository.edit(student);
     }

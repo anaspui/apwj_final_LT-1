@@ -48,7 +48,10 @@ public class StudentController {
     }
 
     @PostMapping("/update/{id}")
-    public String confirmUpdate(@ModelAttribute("student") Student student, @PathVariable int id) throws SQLException {
+    public String confirmUpdate(@Valid @ModelAttribute("student") Student student, BindingResult bindingResult, Model model, @PathVariable int id) throws SQLException {
+        if (bindingResult.hasErrors()) {
+            return "edit";
+        }
         studentService.edit(student);
         return "redirect:/students";
     }

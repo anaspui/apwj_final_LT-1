@@ -22,6 +22,7 @@ public class Student {
     private int id;
 
     @NotNull
+    @Size(min = 1, max = 255)
     @Column(name = "name")
     private String name;
 
@@ -39,7 +40,7 @@ public class Student {
 
 
     @NotNull
-    @Past
+    @Past(message = "Invalid Date of Birth")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Column(name = "dateOfBirth")
     private Date dateOfBirth;
@@ -109,8 +110,6 @@ public class Student {
     public void setCountry(String country) {
         this.country = country;
     }
-
-
 
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
